@@ -88,6 +88,6 @@ class OfferForm(wtf.Form):
     app_id = HiddenField()
     offerMade = RadioField('Offer', choices=[('', ''), ('Yes', 'Yes'), ('No', 'No')])
     offer_date = DateField('Open Date')
-    response RadioField('Offer', choices=[('', ''), ('Yes', 'Yes'), ('No', 'No')])
+    response = RadioField('Response', choices=[('', ''), ('Yes', 'Yes'), ('No', 'No')])
     response_date = HiddenField()
     available = DateField('Date Available')
