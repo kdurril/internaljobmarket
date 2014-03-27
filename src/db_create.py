@@ -73,11 +73,11 @@ curs.execute(qry_position_table)
 conn.commit()
 
 qry_positionApp_table = '''CREATE TABLE positionApp (
-app_id INTEGER PRIMARY KEY AUTOINCREMENT  ,
-student_id TEXT,
+app_id INTEGER PRIMARY KEY AUTOINCREMENT,
 position_id INTEGER, 
-CONSTRAINT FKstudent FOREIGN KEY (student_id) REFERENCES student,
+student_id TEXT,
 CONSTRAINT FKpostion FOREIGN KEY (position_id) REFERENCES position,
+CONSTRAINT FKstudent FOREIGN KEY (student_id) REFERENCES student,
 CONSTRAINT CHK_student_position UNIQUE (position_id, student_id)
 ); '''
 curs.execute(qry_positionApp_table)
