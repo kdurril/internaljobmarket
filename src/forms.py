@@ -20,8 +20,8 @@ class ClassicExampleForm(wtf.Form):
 
 
 class StudentForm(wtf.Form):
-    nameLast = TextField('Last Name', [validators.Length(min=2, max=25)])
-    nameFirst = TextField('First Name', [validators.Length(min=1, max=25)])
+    nameLast = TextField('Last Name', [validators.Length(min=1, max=100)])
+    nameFirst = TextField('First Name', [validators.Length(min=1, max=100)])
     studentUid = TextField('Student UID', validators.Length(9)])
     email = TextField('Email Address', [validators.Length(min=6, max=35)])
     phone = TextField('Phone', [validators.Length(min=1, max=25)])
@@ -81,7 +81,7 @@ class PositionForm(wtf.Form):
 class ApplicationForm(wtf.Form):
     app_id = HiddenField()
     student_id = TextField('Student Directory ID')
-    position_id = HiddenField('Student Directory ID')
+    position_id = HiddenField('Position ID')
 
 class OfferForm(wtf.Form):
     offer_id = HiddenField()

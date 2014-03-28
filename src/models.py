@@ -18,7 +18,7 @@ qry_student = ''' SELECT student_id,
                 FROM student  
                 '''
 
-qry_supervisor = ''' SELECT supervisor_id ,
+qry_supervisor = ''' SELECT supervisor_id,
                     nameLast,
                     nameFirst,
                     phone,
