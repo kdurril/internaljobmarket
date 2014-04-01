@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from yourapplication.database import Base
+from internaljobmarket.database import Base
 
 class Student(Base):
     __tablename__ = 'student'
@@ -18,20 +18,13 @@ class Student(Base):
     request201408 = Column(String(120))
     request201501 = Column(String(120))
 
-    def __init__(self, 
-        student_id=None,
-                studentUid=None,
-                nameLast=None,
-                nameFirst=None,
-                email=None,
-                phone=None,
-                major=None,
-                programCode=None,
-                semBegin=None,
-                graduationExpected=None,
-                creditFall=None,
-                creditSpring=None,
-                request201408=None,
+    def __init__(self, student_id=None,
+                studentUid=None, nameLast=None,
+                nameFirst=None, email=None,
+                phone=None, major=None,
+                programCode=None, semBegin=None,
+                graduationExpected=None, creditFall=None,
+                creditSpring=None, request201408=None,
                 request201501=None):
         self.student_id = student_id
         self.studentUid =  studentUid
@@ -59,12 +52,9 @@ class Supervisor(Base):
     center = Column(String(120))
 
     def __init__(self, supervisor_id=None, 
-                nameLast=None,
-                nameFirst=None,
-                phone=None,
-                email=None,
-                room=None,
-                center=None):
+                nameLast=None, nameFirst=None,
+                phone=None, email=None,
+                room=None, center=None):
         self.supervisor_id = supervisor_id
         self.nameLast = nameLast
         self.nameFirst = nameFirst
@@ -92,20 +82,12 @@ class Position(Base):
     supervisor_id = Column(String(120))
 
     def __init__(self, position_id=None,
-                title=None,
-                workGroup=None,
-                position_type=None,
-                course=None,
-                programMin=None,
-                programStd=None,
-                positionOverview=None,
-                primaryDuties=None,
-                necessarySkill=None,
-                preferredSkill=None,
-                dateOpen=None,
-                dateClosed=None,
-                available=None,
-                supervisor_id=None):
+                title=None, workGroup=None, position_type=None,
+                course=None, programMin=None, programStd=None,
+                positionOverview=None, primaryDuties=None,
+                necessarySkill=None, preferredSkill=None,
+                dateOpen=None, dateClosed=None,
+                available=None, supervisor_id=None):
         self.selfposition_id = position_id
         self.title = title
         self.workGroup =workGroup
@@ -146,13 +128,9 @@ class Offer(Base):
     response_date = Column(String(120))
     available = Column(String(120))
 
-    def __init__(self, 
-                offer_id=None,
-                app_id=None,
-                offerMade=None,
-                offer_date=None,
-                response=None,
-                response_date=None,
+    def __init__(self, offer_id=None, app_id=None,
+                offerMade=None, offer_date=None,
+                response=None, response_date=None,
                 available=None):
         self.offer_id = offer_id
         self.app_id = app_id

@@ -3,6 +3,7 @@
 #-*- coding: utf-8 -*-
 #http://flask.pocoo.org/docs/views/ Method Based Dispatching
 
+from internaljobmarket import app
 from flask.views import MethodView
 from flask.forms import StudentForm, SupervisorForm, PositionForm, ApplicationForm, OfferForm
 import slqlite3
