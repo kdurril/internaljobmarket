@@ -13,7 +13,7 @@ class StudentView(MethodView):
 
     def post(self):
         "create new student record"
-        students = StudentModel
+        students = StudentModel()
         form = StudentForm(request.form)
         if form.validate():
             students.student_id = form.student_id.data
@@ -30,6 +30,7 @@ class StudentView(MethodView):
             students.creditSpring = form.creditSpring.data
             students.request201408 = form.request201408.data
             students.request201501 = form.request201501.data
+            return students
         pass
 
     def put(self, student_id):
@@ -42,7 +43,7 @@ class StudentView(MethodView):
 
     def get(self):
         "review student record"
-        form = StudentForm()
+        
         pass
 #Move to urls
 app.add_url_rule('/students/', view_func=Student.as_view('students'))
@@ -50,15 +51,17 @@ app.add_url_rule('/students/', view_func=Student.as_view('students'))
 class SupervisorView(MethodView):
     def post(self):
         "create supervisor record"
+        supervisors = SupervisorModel()
         form = SupervisorForm(request.form)
         if form.validate():
-            form.supervisor_id.data
-            form.nameLast.data
-            form.nameFirst.data
-            form.phone.data
-            form.email.data
-            form.room.data
-            form.center.data
+           supervisors.supervisor_id = form.supervisor_id.data
+           supervisors.nameLast = form.nameLast.data
+           supervisors.nameFirst = form.nameFirst.data
+           supervisors.phone = form.phone.data
+           supervisors.email = form.email.data
+           supervisors.room = form.room.data
+           supervisors.center =  form.center.data
+           return supervisors
         pass
 
     def put(self, supervisor_id):
@@ -81,23 +84,24 @@ class PositionView(MethodView):
 
     def post(self):
         "create position record"
+        positions = PostionModel()
         form = PositionForm(request.form)
         if form.validate():
-            form.position_id.data
-            form.title.data
-            form.workGroup.data
-            form.position_type.data
-            form.course.data
-            form.programMin.data
-            form.programStd.data
-            form.positionOverview.data
-            form.primaryDuties.data
-            form.necessarySkill.data
-            form.preferredSkill.data
-            form.dateOpen.data
-            form.dateClosed.data
-            form.available.data
-            form.supervisor_id.data
+            positions.position_id = form.position_id.data
+            positions.title = form.title.data
+            positions.workGroup = form.workGroup.data
+            positions.position_type = form.position_type.data
+            positions.course = form.course.data
+            psoitions.programMin = form.programMin.data
+            positions.programStd = form.programStd.data
+            positions.positionOverview = form.positionOverview.data
+            positions.primaryDuties = form.primaryDuties.data
+            positions.necessarySkill = form.necessarySkill.data
+            positions.preferredSkill = form.preferredSkill.data
+            positions.dateOpen = form.dateOpen.data
+            positions.dateClosed = form.dateClosed.data
+            positions.available = form.available.data
+            positions.supervisor_id = form.supervisor_id.data
         pass
 
     def put(self):
@@ -128,11 +132,12 @@ app.add_url_rule('/positions/<int:position_id>', view_func=position_view,
 class ApplicationView(MethodView):
     def post(self, position_id):
         "create application record"
+        applications = ApplicationModel()
         form = ApplicationForm(request.form)
         if form.validate():
-            form.app_id.data
-            form.student_id.data
-            form.position_id.data
+            applications.app_id = form.app_id.data
+            applications.student_id = form.student_id.data
+            applications.postition_id = form.position_id.data
         pass
 
     def put(self, position_id):
@@ -160,14 +165,16 @@ app.add_url_rule('/application/', view_func=Application.as_view('application'))
 class OfferView(MethodView):
     def post(self, application_id):
         "create new offer"
+        offers = OfferModel()
         form = OfferForm(request.form)
-        form.offer_id.data
-        form.app_id.data
-        form.offerMade.data 
-        form.offer_date.data 
-        form.response.data
-        form.response_date.data
-        form.available.data
+        if form.validate():
+            offers.offer_id = form.offer_id.data
+            offers.app_id = form.app_id.data
+            offers.offerMade = form.offerMade.data 
+            offers.offer_date = form.offer_date.data 
+            offers.response = form.response.data
+            offers.response_date = form.response_date.data
+            offers.available = form.available.data
         pass
 
     def put(self, offer_id):
