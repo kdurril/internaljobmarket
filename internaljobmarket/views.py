@@ -5,29 +5,31 @@
 
 from internaljobmarket import app
 from flask.views import MethodView
+from flask.models import StudentModel, SupervisorModel, PositionModel, ApplicationModel, OfferModel
 from flask.forms import StudentForm, SupervisorForm, PositionForm, ApplicationForm, OfferForm
 import slqlite3
 
-class Student(MethodView):
+class StudentView(MethodView):
 
     def post(self):
         "create new student record"
+        students = StudentModel
         form = StudentForm(request.form)
         if form.validate():
-            form.student_id.data
-            form.studentUid.data
-            form.nameLast.data
-            form.nameFirst.data
-            form.email.data
-            form.phone.data
-            form.major.data
-            form.programCode.data
-            form.semBegin.data
-            form.graduationExpected.data
-            form.creditFall.data
-            form.creditSpring.data
-            form.request201408.data
-            form.request201501.data
+            students.student_id = form.student_id.data
+            students.studentUid. = form.studentUid.data
+            students.nameLast = form.nameLast.data
+            students.nameFirst = form.nameFirst.data
+            student.email = form.email.data
+            students.phone = form.phone.data
+            students.major = form.major.data
+            students.programCode = form.programCode.data
+            students.semBegin = form.semBegin.data
+            students.graudationExpected = form.graduationExpected.data
+            students.creditFall = form.creditFall.data
+            students.creditSpring = form.creditSpring.data
+            students.request201408 = form.request201408.data
+            students.request201501 = form.request201501.data
         pass
 
     def put(self, student_id):
@@ -45,7 +47,7 @@ class Student(MethodView):
 #Move to urls
 app.add_url_rule('/students/', view_func=Student.as_view('students'))
 
-class Supervisor(MethodView):
+class SupervisorView(MethodView):
     def post(self):
         "create supervisor record"
         form = SupervisorForm(request.form)
@@ -75,7 +77,7 @@ class Supervisor(MethodView):
 #Move to urls
 app.add_url_rule('/supervisors/', view_func=Supervisors.as_view('supervisors'))
 
-class Position(MethodView):
+class PositionView(MethodView):
 
     def post(self):
         "create position record"
@@ -123,7 +125,7 @@ app.add_url_rule('/positions/', view_func=Positions.as_view('positions'))
 app.add_url_rule('/positions/<int:position_id>', view_func=position_view,
                  methods=['GET', 'PUT', 'DELETE'])
 
-class Application(MethodView):
+class ApplicationView(MethodView):
     def post(self, position_id):
         "create application record"
         form = ApplicationForm(request.form)
@@ -155,7 +157,7 @@ class Application(MethodView):
 #Move to urls
 app.add_url_rule('/application/', view_func=Application.as_view('application'))
 
-class Offer(MethodView):
+class OfferView(MethodView):
     def post(self, application_id):
         "create new offer"
         form = OfferForm(request.form)

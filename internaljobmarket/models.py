@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from internaljobmarket.database import Base
 
-class Student(Base):
+class StudentModel(Base):
     __tablename__ = 'student'
     student_id = Column(String(50), primary_key=True)
     studentUid = Column(String(120))
@@ -41,7 +41,7 @@ class Student(Base):
         self.request201408 = request201408
         self.request201501 = request201501
 
-class Supervisor(Base):
+class SupervisorModel(Base):
     __tablename__ = 'supervisor'
     supervisor_id = Column(String(50), primary_key=True)
     nameLast = Column(String(120))
@@ -63,7 +63,7 @@ class Supervisor(Base):
         self.room = room
         self.center = center
 
-class Position(Base):
+class PositionModel(Base):
     __tablename__ = 'position'
     position_id  = Column(Integer, primary_key=True)
     title = Column(String(120))
@@ -104,7 +104,7 @@ class Position(Base):
         self.available = available
         self.supervisor_id = supervisor_id
 
-class Application(Base):
+class ApplicationModel(Base):
     __tablename__ = 'application'
     app_id = Column(Integer, primary_key=True)
     student_id = Column(String(120))
@@ -118,7 +118,7 @@ class Application(Base):
         self.student_id = student_id
         self.position_id = position_id
 
-class Offer(Base):
+class OfferModel(Base):
     __tablename__ = 'offer'
     offer_id 
     app_id

@@ -7,12 +7,14 @@ See: http://flask.pocoo.org/docs/patterns/wtforms/
 http://wtforms.simplecodes.com/
 
 """
+import wtf
+from wtf import wtf, validators
+#from flaskext import wtf
+#from flaskext.wtf import validators
 
-from flaskext import wtf
-from flaskext.wtf import validators
-
-from .models import ExampleModel
-
+from internaljobmarket.models import ExampleModel, StudentModel,\
+                                SupervisorModel, PositionModel,\
+                                ApplicationModel, OfferModel
 
 class ClassicExampleForm(wtf.Form):
     example_name = wtf.TextField('Name', validators=[validators.Required()])

@@ -1,8 +1,5 @@
 # URLs
-
-
-
-
+import internaljobmarket.views 
 
 app.add_url_rule('/students/', view_func=Student.as_view('students'))
 app.add_url_rule('/supervisors/', view_func=Supervisors.as_view('supervisors'))
